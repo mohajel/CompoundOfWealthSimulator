@@ -226,7 +226,8 @@ build/main.o: src/main.cpp /usr/include/stdc-predef.h \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp /usr/include/c++/12/iostream \
  /usr/include/c++/12/istream /usr/include/c++/12/bits/istream.tcc \
- include/../include/manual.hpp include/../include/simulator.hpp
+ include/manual.hpp include/simulator.hpp include/participant.hpp \
+ include/coin.hpp include/initializer.hpp
 src/main.cpp /usr/include/stdc-predef.h :
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp :
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp :
@@ -455,4 +456,5 @@ src/main.cpp /usr/include/stdc-predef.h :
  /usr/include/SFML/Audio/SoundFileReader.hpp :
  /usr/include/SFML/Audio/SoundFileWriter.hpp /usr/include/c++/12/iostream :
  /usr/include/c++/12/istream /usr/include/c++/12/bits/istream.tcc :
- include/../include/manual.hpp include/../include/simulator.hpp :
+ include/manual.hpp include/simulator.hpp include/participant.hpp :
+ include/coin.hpp include/initializer.hpp :

@@ -2,6 +2,9 @@
 #define __SIMULATOR__
 
 #include <string>
+#include <vector>
+
+#include "participant.hpp"
 
 class Simulator
 {
@@ -12,9 +15,12 @@ public:
 
     void run();
 
+    void add_participants(std::vector<Participant> participants);
+    void add_participants(Participant participant);
+
 
 private:
-    /* data */
+    std::vector<Participant> participants;
 };
 
 
