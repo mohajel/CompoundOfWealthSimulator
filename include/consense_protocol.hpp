@@ -7,12 +7,15 @@
 
 #include "participant.hpp"
 #include "coin.hpp"
+
 class ConsenseProtocol
 {
 
 public:
     ConsenseProtocol();
     ~ConsenseProtocol();
+
+    Participant find_winner_participant(std::vector<Participant> &participants);
 private:
 };
 
