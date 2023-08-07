@@ -92,9 +92,14 @@ build/participant.o: src/participant.cpp /usr/include/stdc-predef.h \
  /usr/include/linux/errno.h /usr/include/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/bits/types/error_t.h /usr/include/c++/12/bits/charconv.h \
- /usr/include/c++/12/bits/basic_string.tcc /usr/include/c++/12/iostream \
- /usr/include/c++/12/ostream /usr/include/c++/12/ios \
- /usr/include/c++/12/exception /usr/include/c++/12/bits/exception_ptr.h \
+ /usr/include/c++/12/bits/basic_string.tcc /usr/include/c++/12/vector \
+ /usr/include/c++/12/bits/stl_uninitialized.h \
+ /usr/include/c++/12/bits/stl_vector.h \
+ /usr/include/c++/12/bits/stl_bvector.h \
+ /usr/include/c++/12/bits/vector.tcc include/coin.hpp \
+ /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
+ /usr/include/c++/12/ios /usr/include/c++/12/exception \
+ /usr/include/c++/12/bits/exception_ptr.h \
  /usr/include/c++/12/bits/cxxabi_init_exception.h \
  /usr/include/c++/12/typeinfo /usr/include/c++/12/bits/nested_exception.h \
  /usr/include/c++/12/bits/ios_base.h /usr/include/c++/12/ext/atomicity.h \
@@ -219,9 +224,14 @@ src/participant.cpp /usr/include/stdc-predef.h :
  /usr/include/linux/errno.h /usr/include/asm/errno.h :
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h :
  /usr/include/bits/types/error_t.h /usr/include/c++/12/bits/charconv.h :
- /usr/include/c++/12/bits/basic_string.tcc /usr/include/c++/12/iostream :
- /usr/include/c++/12/ostream /usr/include/c++/12/ios :
- /usr/include/c++/12/exception /usr/include/c++/12/bits/exception_ptr.h :
+ /usr/include/c++/12/bits/basic_string.tcc /usr/include/c++/12/vector :
+ /usr/include/c++/12/bits/stl_uninitialized.h :
+ /usr/include/c++/12/bits/stl_vector.h :
+ /usr/include/c++/12/bits/stl_bvector.h :
+ /usr/include/c++/12/bits/vector.tcc include/coin.hpp :
+ /usr/include/c++/12/iostream /usr/include/c++/12/ostream :
+ /usr/include/c++/12/ios /usr/include/c++/12/exception :
+ /usr/include/c++/12/bits/exception_ptr.h :
  /usr/include/c++/12/bits/cxxabi_init_exception.h :
  /usr/include/c++/12/typeinfo /usr/include/c++/12/bits/nested_exception.h :
  /usr/include/c++/12/bits/ios_base.h /usr/include/c++/12/ext/atomicity.h :

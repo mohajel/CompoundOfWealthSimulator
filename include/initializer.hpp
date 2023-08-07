@@ -2,7 +2,11 @@
 #define __INITIALIZER__
 
 #include <string>
+#include <vector>
 
+
+#include "participant.hpp"
+#include "coin.hpp"
 class Initializer
 {
 
@@ -10,8 +14,12 @@ public:
     Initializer();
     ~Initializer();
 
+    std::vector<Participant> generate_random_participants(int number_of_participants);
+
 
 private:
+    Participant get_random_participant();
+    Coin get_random_coin(int interval);
 };
 
 

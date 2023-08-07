@@ -16,3 +16,7 @@ Participant::~Participant()
 {
 }
 
+void Participant::add_coin(Coin coin)
+{
+    this->coins.push_back(coin);
+}
