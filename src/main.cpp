@@ -3,12 +3,13 @@
 #include <iostream>
 
 #include <../include/manual.hpp>
+#include <../include/simulator.hpp>
 
 using namespace std;
 
 int main()
 {
-    cout << GAME_HEADER_NAME << endl;
-    
+    Simulator simulator;
+    simulator.run();
     return 0;
 }
