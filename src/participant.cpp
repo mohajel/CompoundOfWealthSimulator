@@ -6,8 +6,10 @@
 
 using namespace std;
 
-Participant::Participant(/* args */)
+Participant::Participant(float latancy, bool is_participating)
 {
+    this->latancy = latancy;
+    this->is_participating = is_participating;
 }
 
 Participant::~Participant()

@@ -1,0 +1,18 @@
+// In the Name of God
+
+#include "coin.hpp"
+
+#include <iostream>
+
+using namespace std;
+
+Coin::Coin(int value, int block_created)
+{
+    this->value = value;
+    this->block_created = block_created;
+}
+
+Coin::~Coin()
+{
+}
+
