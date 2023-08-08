@@ -9,6 +9,7 @@
 #include "manual.hpp"
 #include "participant.hpp"
 #include "coin.hpp"
+#include "stake.hpp"
 
 
 using namespace std;
@@ -22,9 +23,9 @@ ConsenseProtocol::~ConsenseProtocol()
 {
 }
 
-Participant ConsenseProtocol::find_winner_participant(vector<Participant> &participants)
+Stake find_winner_stake(std::vector<Stake> &stakes)
 {
-    Participant winner_participant = participants[0];
+    Stake winner_stake = stakes[0];
     // TODO: implement this function
 
 
@@ -32,5 +33,5 @@ Participant ConsenseProtocol::find_winner_participant(vector<Participant> &parti
     // for (size_t i = 0; i < participants.size(); i++)
     // {
     // }
-    return winner_participant;
+    return winner_stake;
 }

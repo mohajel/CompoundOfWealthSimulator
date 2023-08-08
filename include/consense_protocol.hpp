@@ -7,6 +7,7 @@
 
 #include "participant.hpp"
 #include "coin.hpp"
+#include "stake.hpp"
 
 class ConsenseProtocol
 {
@@ -15,7 +16,7 @@ public:
     ConsenseProtocol();
     ~ConsenseProtocol();
 
-    Participant find_winner_participant(std::vector<Participant> &participants);
+    Stake find_winner_stake(std::vector<Stake> &stakes);
 private:
 };
 

@@ -156,8 +156,9 @@ build/consense_protocol.o: src/consense_protocol.cpp \
  /usr/include/c++/12/bits/stl_numeric.h /usr/include/c++/12/bit \
  /usr/include/c++/12/pstl/glue_numeric_defs.h \
  /usr/include/c++/12/pstl/execution_defs.h include/consense_protocol.hpp \
- include/participant.hpp include/coin.hpp include/manual.hpp \
- include/participant.hpp include/coin.hpp
+ include/participant.hpp include/coin.hpp include/stake.hpp \
+ include/manual.hpp include/participant.hpp include/coin.hpp \
+ include/stake.hpp
 src/consense_protocol.cpp :
  /usr/include/stdc-predef.h /usr/include/c++/12/iostream :
  /usr/include/c++/12/x86_64-redhat-linux/bits/c++config.h :
@@ -316,5 +317,6 @@ src/consense_protocol.cpp :
  /usr/include/c++/12/bits/stl_numeric.h /usr/include/c++/12/bit :
  /usr/include/c++/12/pstl/glue_numeric_defs.h :
  /usr/include/c++/12/pstl/execution_defs.h include/consense_protocol.hpp :
- include/participant.hpp include/coin.hpp include/manual.hpp :
- include/participant.hpp include/coin.hpp :
+ include/participant.hpp include/coin.hpp include/stake.hpp :
+ include/manual.hpp include/participant.hpp include/coin.hpp :
+ include/stake.hpp :
