@@ -17,10 +17,31 @@ Simulator::~Simulator()
 {
 }
 
-void Simulator::run()
+void Simulator::run(int number_of_blocks)
 {
-    cout << "Hello World!" << endl;
-    
+    for (int i = 0; i < number_of_blocks; i++)
+    {
+        // get stakes from participants
+        get_stakes_from_participants();
+
+
+        //make this two 1 function in consemse protocol
+        // find winner stake based on consense protocol
+        auto winner_stake = this->consense_protocol.find_winner_stake(stakes);
+
+        // distribute rewards based on consense protocol
+
+
+        // update / giveback stakes
+    }   
+}
+
+void Simulator::get_stakes_from_participants()
+{
+    for (auto participant : participants)
+    {
+        // stakes.push_back(participant.get_stake());
+    }
 }
 
 void Simulator::add_participants(vector<Participant> participants)
