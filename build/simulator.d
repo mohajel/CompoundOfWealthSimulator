@@ -130,7 +130,9 @@ build/simulator.o: src/simulator.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/12/bits/stl_vector.h \
  /usr/include/c++/12/bits/stl_bvector.h \
  /usr/include/c++/12/bits/vector.tcc include/simulator.hpp \
- include/participant.hpp include/coin.hpp include/participant.hpp
+ include/participant.hpp include/coin.hpp include/stake.hpp \
+ include/consense_protocol.hpp include/participant.hpp include/coin.hpp \
+ include/consense_protocol.hpp
 src/simulator.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/12/iostream :
  /usr/include/c++/12/x86_64-redhat-linux/bits/c++config.h :
@@ -263,4 +265,6 @@ src/simulator.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/12/bits/stl_vector.h :
  /usr/include/c++/12/bits/stl_bvector.h :
  /usr/include/c++/12/bits/vector.tcc include/simulator.hpp :
- include/participant.hpp include/coin.hpp include/participant.hpp :
+ include/participant.hpp include/coin.hpp include/stake.hpp :
+ include/consense_protocol.hpp include/participant.hpp include/coin.hpp :
+ include/consense_protocol.hpp :

@@ -15,10 +15,12 @@ public:
     ~Initializer();
 
     std::vector<Participant> generate_random_participants(int number_of_participants);
+    std::vector<Participant> generate_simple_participants(int number_of_participants);
 
 
 private:
     Participant get_random_participant();
+    Participant get_participant(int coin_value);
     Coin get_random_coin(int interval);
 };
 

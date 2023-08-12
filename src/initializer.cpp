@@ -37,6 +37,14 @@ Participant Initializer::get_random_participant()
     return participant;
 }
 
+
+Participant Initializer::get_participant(int coin_value)
+{
+    Participant participant;
+    participant.add_coin(Coin(coin_value, 1));
+    return participant;
+}
+
 Coin Initializer::get_random_coin(int interval)
 {
     // create random number between 0 and interval
@@ -45,6 +53,16 @@ Coin Initializer::get_random_coin(int interval)
 
     return Coin(coin_value, initial_block);
 }
+
+
+vector<Participant> Initializer::generate_simple_participants(int number_of_participants)
+{
+    vector<Participant> participants;
+    for (size_t i = 1; i <= number_of_participants; i++)
+        participants.push_back(this->get_participant(i));
+    return participants;
+}
+
 
 
 
