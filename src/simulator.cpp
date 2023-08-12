@@ -25,7 +25,7 @@ void Simulator::run(int number_of_blocks)
     for (int i = 0; i < number_of_blocks; i++)
     {
         // get stakes from participants
-        get_stakes_from_participants();
+        get_stakes_from_participants(); // Done
 
 
         //make this two 1 function in consemse protocol
@@ -43,7 +43,7 @@ void Simulator::get_stakes_from_participants()
 {
     for (auto participant : participants)
     {
-        // stakes.push_back(participant.get_stake());
+        stakes.push_back(participant.generate_stake());
     }
 }
 
