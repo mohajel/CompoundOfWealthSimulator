@@ -2,6 +2,8 @@
 #define __MANUAL__
 
 #include <string>
+#include <vector>
+#include <random>
 
 #define SNAKE_SIZE_SCALE 0.2
 
@@ -12,5 +14,8 @@ const std::string SNAKE_HEAD = "./pictures/SnakeHead.png";
 const std::string APPLE_IMAGE = "./pictures/AppleImage.png";
 const std::string EAT_APPLE_SOUND = "./sounds/EatApple.wav";
 const std::string GAME_FINISH_SOUND = "./sounds/GameOver.wav";
+
+
+
 
 #endif // __MANUAL__

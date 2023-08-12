@@ -16,9 +16,11 @@ public:
 
     bool is_empty();
 
+    
+    std::vector<Coin> coins;
+
 
 private:
-    std::vector<Coin> coins;
     int blocks_left;
     Participant *owner;
 };
