@@ -25,13 +25,21 @@ ConsenseProtocol::~ConsenseProtocol()
 
 Stake find_winner_stake(std::vector<Stake> &stakes)
 {
-    Stake winner_stake = stakes[0];
-    // TODO: implement this function
-
-
+    // // get all coins from all stakes
     // int max_coin_value = 0;
-    // for (size_t i = 0; i < participants.size(); i++)
+    // for (size_t i = 0; i < stakes.size(); i++)
     // {
+    //     /* code */
     // }
-    return winner_stake;
+    
+
+    // Stake winner_stake = stakes[0];
+    // // TODO: implement this function
+
+
+    // // int max_coin_value = 0;
+    // // for (size_t i = 0; i < participants.size(); i++)
+    // // {
+    // // }
+    // return winner_stake;
 }
