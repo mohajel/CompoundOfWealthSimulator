@@ -20,3 +20,13 @@ Stake::Stake(vector<Coin> coins, int blocks_left, Participant *owner)
 Stake::~Stake()
 {
 }
+
+bool Stake::is_empty()
+{
+    if (this->coins.size() == 0)
+        return true;
+    for (size_t i = 0; i < coins.size(); i++)
+        if (coins[i].get_value() != 0)
+            return false;
+    return true;
+}

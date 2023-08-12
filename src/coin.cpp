@@ -16,3 +16,8 @@ Coin::~Coin()
 {
 }
 
+double Coin::get_value()
+{
+    return this->value;
+}
+

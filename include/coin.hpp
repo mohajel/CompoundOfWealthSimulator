@@ -9,8 +9,10 @@ public:
     Coin(int value, int block_created);
     ~Coin();
 
+    double get_value();
+
 private:
-    int value;
+    double value;
     int block_created;
 };
 
