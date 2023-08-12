@@ -21,3 +21,15 @@ void Participant::add_coin(Coin coin)
 {
     this->coins.push_back(coin);
 }
+
+Stake Participant::generate_stake()
+{
+    vector<Coin> coins;
+    for (size_t i = 0; i < this->coins.size(); i++)
+        coins.push_back(this->coins[i]);
+
+    // clear coins
+    this->coins.clear();
+    
+    return Stake(coins, 1, this);
+}

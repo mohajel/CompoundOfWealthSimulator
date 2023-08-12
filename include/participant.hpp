@@ -14,8 +14,9 @@ class Participant
 public:
     Participant(float latancy = 1, bool is_participating = true);
     ~Participant();
-
+    
     void add_coin(Coin coin);
+    Stake generate_stake();
 
 private:
     std::vector<Coin> coins;
