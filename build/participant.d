@@ -96,7 +96,7 @@ build/participant.o: src/participant.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/12/bits/stl_uninitialized.h \
  /usr/include/c++/12/bits/stl_vector.h \
  /usr/include/c++/12/bits/stl_bvector.h \
- /usr/include/c++/12/bits/vector.tcc include/coin.hpp \
+ /usr/include/c++/12/bits/vector.tcc include/coin.hpp include/stake.hpp \
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
  /usr/include/c++/12/ios /usr/include/c++/12/exception \
  /usr/include/c++/12/bits/exception_ptr.h \
@@ -228,7 +228,7 @@ src/participant.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/12/bits/stl_uninitialized.h :
  /usr/include/c++/12/bits/stl_vector.h :
  /usr/include/c++/12/bits/stl_bvector.h :
- /usr/include/c++/12/bits/vector.tcc include/coin.hpp :
+ /usr/include/c++/12/bits/vector.tcc include/coin.hpp include/stake.hpp :
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream :
  /usr/include/c++/12/ios /usr/include/c++/12/exception :
  /usr/include/c++/12/bits/exception_ptr.h :

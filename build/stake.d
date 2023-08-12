@@ -130,8 +130,7 @@ build/stake.o: src/stake.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/12/bits/stl_vector.h \
  /usr/include/c++/12/bits/stl_bvector.h \
  /usr/include/c++/12/bits/vector.tcc include/participant.hpp \
- include/coin.hpp include/stake.hpp include/participant.hpp \
- include/coin.hpp
+ include/coin.hpp include/stake.hpp include/coin.hpp
 src/stake.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/12/iostream :
  /usr/include/c++/12/x86_64-redhat-linux/bits/c++config.h :
@@ -264,5 +263,4 @@ src/stake.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/12/bits/stl_vector.h :
  /usr/include/c++/12/bits/stl_bvector.h :
  /usr/include/c++/12/bits/vector.tcc include/participant.hpp :
- include/coin.hpp include/stake.hpp include/participant.hpp :
- include/coin.hpp :
+ include/coin.hpp include/stake.hpp include/coin.hpp :

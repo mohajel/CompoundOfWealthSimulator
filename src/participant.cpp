@@ -1,6 +1,7 @@
 // In the Name of God
 
 #include "participant.hpp"
+#include "stake.hpp"
 
 #include <iostream>
 

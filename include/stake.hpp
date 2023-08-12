@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "participant.hpp"
 #include "coin.hpp"
 
+class Participant;
 class Stake
 {
 

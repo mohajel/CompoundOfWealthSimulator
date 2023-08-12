@@ -6,6 +6,8 @@
 
 #include "coin.hpp"
 
+class Stake;
+
 class Participant
 {
 
