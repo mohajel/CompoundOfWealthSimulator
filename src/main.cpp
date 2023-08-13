@@ -1,3 +1,5 @@
+// In the Name of God
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>

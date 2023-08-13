@@ -46,15 +46,10 @@ void Simulator::run(int number_of_blocks)
 
         // print_participants_status();
 
-
         consense_protocol.distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
         this->update_stakes();
 
-        // print stakes size
-        // cout << "Stakes size: " << stakes.size() << endl;
-
-        // print_stakes_status();
         // return;
     }   
 }
