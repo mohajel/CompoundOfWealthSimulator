@@ -11,7 +11,10 @@
 
 using namespace std;
 
-Simulator::Simulator(/* args */)
+Simulator::Simulator(/* args */) 
+    : 
+    consense_protocol(),
+    last_block_number(0)
 {
 }
 
@@ -22,6 +25,9 @@ Simulator::~Simulator()
 void Simulator::run(int number_of_blocks)
 {
     cout << "Simulator is running" << endl;
+
+    double reward_value = 5;
+
     for (int i = 0; i < number_of_blocks; i++)
     {
         // get stakes from participants
@@ -30,12 +36,16 @@ void Simulator::run(int number_of_blocks)
 
         //make this two 1 function in consemse protocol
         // find winner stake based on consense protocol
-        // auto winner_stake = this->consense_protocol.find_winner_stake(stakes);
+        Stake winner_stake = consense_protocol.find_winner_stake(stakes);
 
         // distribute rewards based on consense protocol
+        consense_protocol.distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
 
         // update / giveback stakes
+        update_stakes();
+
+        last_block_number ++;
     }   
 }
 
@@ -56,4 +66,12 @@ void Simulator::add_participants(vector<Participant> participants)
 void Simulator::add_participants(Participant participant)
 {
     this->participants.push_back(participant);
+}
+
+void Simulator::update_stakes()
+{
+    // for (auto stake : stakes)
+    // {
+    //     stake.owner->update_stake(stake);
+    // }
 }

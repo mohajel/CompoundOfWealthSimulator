@@ -25,6 +25,10 @@ public:
 private:
 
     void get_stakes_from_participants();
+    void update_stakes();
+
+    int last_block_number;
+
     ConsenseProtocol consense_protocol;
 
     std::vector<Participant> participants;

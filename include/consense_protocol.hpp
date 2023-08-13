@@ -17,6 +17,8 @@ public:
     ~ConsenseProtocol();
 
     Stake find_winner_stake(std::vector<Stake> &stakes);
+    void distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number);
+    
 private:
 };
 

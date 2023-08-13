@@ -18,11 +18,10 @@ public:
 
     
     std::vector<Coin> coins;
-
+    Participant *owner;
 
 private:
     int blocks_left;
-    Participant *owner;
 };
 
 

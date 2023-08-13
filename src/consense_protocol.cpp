@@ -21,7 +21,7 @@ int get_random_number(int min, int max)
 }
 
 
-ConsenseProtocol::ConsenseProtocol()
+ConsenseProtocol::ConsenseProtocol(/* args */)
 {
 }
 
@@ -29,7 +29,7 @@ ConsenseProtocol::~ConsenseProtocol()
 {
 }
 
-Stake find_winner_stake(std::vector<Stake> &stakes)
+Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
 {
     // get all coins from all stakes
     double max_coin_value = 0;
@@ -56,5 +56,11 @@ Stake find_winner_stake(std::vector<Stake> &stakes)
                 return stakes[i];
         }
     }
+    // never reachs here
     return stakes[stakes.size() - 1];
+}
+
+void ConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block)
+{
+    winner_stake.owner->add_coin(Coin(reward_value, last_block));
 }
