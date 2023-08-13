@@ -14,6 +14,8 @@ public:
     Stake(std::vector<Coin> coins, int blocks_left, Participant *owner);
     ~Stake();
 
+    void print_status();
+
     bool is_empty();
     bool update_stake();
 

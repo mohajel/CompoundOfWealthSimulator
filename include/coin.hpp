@@ -10,6 +10,7 @@ public:
     ~Coin();
 
     double get_value();
+    int get_block_created();
 
 private:
     double value;

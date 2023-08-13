@@ -21,3 +21,8 @@ double Coin::get_value()
     return this->value;
 }
 
+int Coin::get_block_created()
+{
+    return this->block_created;
+}
+

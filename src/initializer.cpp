@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <string>
+#include <iomanip>
 
 
 #include "initializer.hpp"
@@ -26,21 +28,21 @@ vector<Participant> Initializer::generate_random_participants(int number_of_part
 {
     vector<Participant> participants;
     for (size_t i = 0; i < number_of_participants; i++)
-        participants.push_back(this->get_random_participant());
+        participants.push_back(this->get_random_participant(to_string(i)));
     return participants;
 }
 
-Participant Initializer::get_random_participant()
+Participant Initializer::get_random_participant(string name)
 {
-    Participant participant;
+    Participant participant(name);
     participant.add_coin(this->get_random_coin(100));
     return participant;
 }
 
 
-Participant Initializer::get_participant(int coin_value)
+Participant Initializer::get_participant(string name, int coin_value)
 {
-    Participant participant;
+    Participant participant(name);
     participant.add_coin(Coin(coin_value, 1));
     return participant;
 }
@@ -59,7 +61,7 @@ vector<Participant> Initializer::generate_simple_participants(int number_of_part
 {
     vector<Participant> participants;
     for (size_t i = 1; i <= number_of_participants; i++)
-        participants.push_back(this->get_participant(i));
+        participants.push_back(this->get_participant(to_string(i), i));
     return participants;
 }
 

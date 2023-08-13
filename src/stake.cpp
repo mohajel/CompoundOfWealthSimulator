@@ -21,6 +21,27 @@ Stake::~Stake()
 {
 }
 
+void Stake::print_status()
+{
+    // cout << "Stake status:" << endl;
+
+    // Bug in here : owner is null
+    // if (this->owner == NULL)
+    //     cout << "Owner: NULL" << endl;
+    // else
+    //     cout << "Owner: " << this->owner->get_name() << endl;
+    cout << "Owner: " << this->owner->get_name() << endl;
+
+    cout << "---Coins: " << endl;
+    for (size_t i = 0; i < coins.size(); i++)
+    {
+        cout << "------Coin " << i << ":" << endl;
+        cout << "------Value: " << coins[i].get_value() << endl;
+        cout << "------Block created: " << coins[i].get_block_created() << endl;
+    }
+}
+
+
 bool Stake::is_empty()
 {
     if (this->coins.size() == 0)

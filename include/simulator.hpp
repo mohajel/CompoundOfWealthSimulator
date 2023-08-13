@@ -23,6 +23,8 @@ public:
 
 
 private:
+    void print_stakes_status();
+    void print_participants_status();
 
     void get_stakes_from_participants();
     void update_stakes();

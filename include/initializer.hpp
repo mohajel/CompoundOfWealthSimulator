@@ -19,8 +19,8 @@ public:
 
 
 private:
-    Participant get_random_participant();
-    Participant get_participant(int coin_value);
+    Participant get_random_participant(std::string name);
+    Participant get_participant( std::string name, int coin_value);
     Coin get_random_coin(int interval);
 };
 
