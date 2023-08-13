@@ -28,7 +28,7 @@ void Simulator::run(int number_of_blocks)
 
     double reward_value = 5;
 
-    // print_participants_status();
+    print_participants_status();
 
     for (int i = 0; i < number_of_blocks; i++)
     {
@@ -37,10 +37,13 @@ void Simulator::run(int number_of_blocks)
 
         get_stakes_from_participants();
 
-        this->print_stakes_status();
-        return;
+        // this->print_stakes_status();
 
         Stake winner_stake = consense_protocol.find_winner_stake(stakes);
+
+        cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
+
+        return;
 
         consense_protocol.distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
