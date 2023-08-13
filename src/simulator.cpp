@@ -30,22 +30,15 @@ void Simulator::run(int number_of_blocks)
 
     for (int i = 0; i < number_of_blocks; i++)
     {
-        // get stakes from participants
-        get_stakes_from_participants(); // Done
+        last_block_number ++;
 
+        get_stakes_from_participants();
 
-        //make this two 1 function in consemse protocol
-        // find winner stake based on consense protocol
         Stake winner_stake = consense_protocol.find_winner_stake(stakes);
 
-        // distribute rewards based on consense protocol
         consense_protocol.distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
-
-        // update / giveback stakes
         update_stakes();
-
-        last_block_number ++;
     }   
 }
 
@@ -70,8 +63,7 @@ void Simulator::add_participants(Participant participant)
 
 void Simulator::update_stakes()
 {
-    // for (auto stake : stakes)
-    // {
-    //     stake.owner->update_stake(stake);
-    // }
+    for (size_t i = stakes.size() -1 ; i <= 0; i--)
+        if (stakes[i].update_stake() == false)
+            stakes.erase(stakes.begin() + i);
 }

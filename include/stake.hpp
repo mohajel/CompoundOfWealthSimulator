@@ -15,6 +15,7 @@ public:
     ~Stake();
 
     bool is_empty();
+    bool update_stake();
 
     
     std::vector<Coin> coins;

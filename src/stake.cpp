@@ -30,3 +30,13 @@ bool Stake::is_empty()
             return false;
     return true;
 }
+
+bool Stake::update_stake()
+{
+    this->blocks_left--;
+    if (this->blocks_left != 0)
+        return true;
+    
+    this->owner->add_coin(this->coins);
+    return false;
+}

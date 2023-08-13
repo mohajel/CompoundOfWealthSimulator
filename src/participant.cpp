@@ -22,6 +22,12 @@ void Participant::add_coin(Coin coin)
     this->coins.push_back(coin);
 }
 
+void Participant::add_coin(vector<Coin> coins)
+{
+    for (auto coin : coins)
+        this->coins.push_back(coin);
+}
+
 Stake Participant::generate_stake()
 {
     vector<Coin> coins;

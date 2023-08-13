@@ -16,6 +16,7 @@ public:
     ~Participant();
     
     void add_coin(Coin coin);
+    void add_coin(std::vector<Coin> coins);
     Stake generate_stake();
 
 private:
