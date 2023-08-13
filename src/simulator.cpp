@@ -28,10 +28,11 @@ void Simulator::run(int number_of_blocks)
 
     double reward_value = 5;
 
-    print_participants_status();
 
     for (int i = 0; i < number_of_blocks; i++)
     {
+        print_participants_status();
+
         last_block_number ++;
         cout << "Block : " << last_block_number << endl;
 
@@ -43,11 +44,18 @@ void Simulator::run(int number_of_blocks)
 
         cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
 
-        return;
+        // print_participants_status();
+
 
         consense_protocol.distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
-        update_stakes();
+        this->update_stakes();
+
+        // print stakes size
+        // cout << "Stakes size: " << stakes.size() << endl;
+
+        // print_stakes_status();
+        // return;
     }   
 }
 
@@ -56,7 +64,7 @@ void Simulator::print_participants_status()
     cout << "Participants status:" << endl;
     for (size_t i = 0; i < participants.size(); i++)
     {
-        cout << "Participant " << i << ":" << endl;
+        // cout << "Participant " << i << ":" << endl;
         participants[i].print_status();
     }
 }
@@ -64,6 +72,13 @@ void Simulator::print_participants_status()
 void Simulator::print_stakes_status()
 {
     cout << "Stakes status in block : " << this->last_block_number << endl;
+
+    if (stakes.size() == 0)
+    {
+        cout << "No stakes EMPTY" << endl;
+        return;
+    }
+
     for (size_t i = 0; i < stakes.size(); i++)
     {
         cout << "Stake " << i << ":" << endl;
@@ -92,7 +107,12 @@ void Simulator::add_participants(Participant participant)
 
 void Simulator::update_stakes()
 {
-    for (size_t i = stakes.size() -1 ; i <= 0; i--)
-        if (stakes[i].update_stake() == false)
+    // cout << "Stakes size before update: " << stakes.size() << endl;
+    for (long long int i = stakes.size() -1 ; i >= 0; i--)
+    {
+        bool result = stakes[i].update_stake();
+        if (result == false)
             stakes.erase(stakes.begin() + i);
+    }
+    // cout << "Stakes size after update: " << stakes.size() << endl;
 }

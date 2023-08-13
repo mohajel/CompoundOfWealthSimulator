@@ -18,7 +18,6 @@ public:
 
     bool is_empty();
     bool update_stake();
-
     
     std::vector<Coin> coins;
     Participant *owner;

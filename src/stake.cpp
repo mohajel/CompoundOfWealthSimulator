@@ -55,6 +55,7 @@ bool Stake::is_empty()
 bool Stake::update_stake()
 {
     this->blocks_left--;
+    // cout << "<<<< Blocks left: " << this->blocks_left << endl;
     if (this->blocks_left != 0)
         return true;
     

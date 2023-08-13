@@ -21,9 +21,16 @@ Participant::~Participant()
 void Participant::print_status()
 {
     // cout << "Participant status:" << endl;
-    cout << "Name: " << this->name << endl;
+    cout << "Participants Name: " << this->name << endl;
     // cout << "Latancy: " << this->latancy << endl;
     // cout << "Is participating: " << this->is_participating << endl;
+
+    // totall coins:
+    int total_coins = 0;
+    for (size_t i = 0; i < coins.size(); i++)
+        total_coins += coins[i].get_value();
+    cout << " ---- Total coins: ---" << total_coins << endl;
+
     // cout << "---Coins: " << endl;
     // for (size_t i = 0; i < coins.size(); i++)
     // {

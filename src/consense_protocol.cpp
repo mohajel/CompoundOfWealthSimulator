@@ -42,11 +42,11 @@ Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
 
     // find floor of max_coin_value
     int max_value = floor(max_coin_value);
-    cout << "max value: " << max_value << endl;
+    // cout << "max value: " << max_value << endl;
 
     // find random number between 0 and max_coin_value using rand function
     int chosen_coin = get_random_number(0, max_value);
-    cout << "chosen coin: " << chosen_coin << endl;
+    // cout << "chosen coin: " << chosen_coin << endl;
 
     for (size_t i = 0; i < stakes.size(); i++)
     {
