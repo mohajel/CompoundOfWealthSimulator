@@ -32,13 +32,7 @@ ConsenseProtocol::~ConsenseProtocol()
 Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
 {
     // get all coins from all stakes
-    double max_coin_value = 0;
-    for (size_t i = 0; i < stakes.size(); i++)
-    {
-        vector<Coin> coins = stakes[i].coins;
-        for (size_t j = 0; j < coins.size(); j++)
-            max_coin_value += coins[j].get_value();
-    }
+    double max_coin_value = this->get_total_stakes_value(stakes);
 
     // find floor of max_coin_value
     int max_value = floor(max_coin_value);
@@ -65,4 +59,44 @@ Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
 void ConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block)
 {
     winner_stake.owner->add_coin(Coin(reward_value, last_block));
+}
+
+double ConsenseProtocol::get_total_stakes_value(std::vector<Stake> &stakes)
+{
+    double result = 0;
+    for (size_t i = 0; i < stakes.size(); i++)
+    {
+        vector<Coin> coins = stakes[i].coins;
+        for (size_t j = 0; j < coins.size(); j++)
+            result += coins[j].get_value();
+    }
+    return result;
+}
+
+
+
+ZahraConsenseProtocol::ZahraConsenseProtocol(/* args */)
+{
+}
+
+ZahraConsenseProtocol::~ZahraConsenseProtocol()
+{
+}
+
+void ZahraConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block)
+{
+    cout << "Zahra distribute_rewards" << endl;
+    // get all coins from all stakes
+    double max_coin_value = get_total_stakes_value(stakes);
+
+    // find floor of max_coin_value
+    int max_value = floor(max_coin_value);
+
+    winner_stake.owner->add_coin(Coin(reward_value * 0.5, last_block));
+    double winner_coins = winner_stake.get_totall_coins_value();
+
+    for (size_t i = 0; i < stakes.size(); i++)
+    {
+        stakes[i].owner->add_coin(Coin(reward_value * 0.5 * winner_coins / max_coin_value, last_block));
+    }
 }

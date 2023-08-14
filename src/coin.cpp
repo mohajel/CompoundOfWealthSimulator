@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Coin::Coin(int value, int block_created)
+Coin::Coin(double value, int block_created)
 {
     this->value = value;
     this->block_created = block_created;

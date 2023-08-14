@@ -18,6 +18,7 @@ public:
 
     bool is_empty();
     bool update_stake();
+    double get_totall_coins_value();
     
     std::vector<Coin> coins;
     Participant *owner;

@@ -31,7 +31,7 @@ private:
 
     int last_block_number;
 
-    ConsenseProtocol consense_protocol;
+    ConsenseProtocol* consense_protocol;
 
     std::vector<Participant> participants;
     std::vector<Stake> stakes;

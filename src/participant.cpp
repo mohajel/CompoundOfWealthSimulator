@@ -1,9 +1,11 @@
 // In the Name of God
 
+#include <iostream>
+
 #include "participant.hpp"
 #include "stake.hpp"
+#include "manual.hpp"
 
-#include <iostream>
 
 using namespace std;
 
@@ -60,7 +62,7 @@ Stake Participant::generate_stake()
     // clear coins
     this->coins.clear();
     
-    return Stake(coins, 1, this);
+    return Stake(coins, STAKE_SIZE, this);
 }
 
 string Participant::get_name()

@@ -6,7 +6,7 @@
 class Coin
 {
 public:
-    Coin(int value, int block_created);
+    Coin(double value, int block_created);
     ~Coin();
 
     double get_value();

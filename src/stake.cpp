@@ -62,3 +62,11 @@ bool Stake::update_stake()
     this->owner->add_coin(this->coins);
     return false;
 }
+
+double Stake::get_totall_coins_value()
+{
+    double totall_coins_value = 0;
+    for (size_t i = 0; i < this->coins.size(); i++)
+        totall_coins_value += this->coins[i].get_value();
+    return totall_coins_value;
+}
