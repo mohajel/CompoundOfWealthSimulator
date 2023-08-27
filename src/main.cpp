@@ -15,8 +15,9 @@ int main()
 {
     int number_of_participants = 10;
     int number_of_blocks = 10;
+    double reward_value = 20;
     Initializer init;
-    Simulator simulator(new ZahraConsenseProtocol());
+    Simulator simulator(new ZahraConsenseProtocol(), reward_value);
     // Simulator simulator(new ConsenseProtocol());
 
     // simulator.add_participants(init.generate_random_participants(number_of_participants));

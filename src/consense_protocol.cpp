@@ -93,10 +93,10 @@ void ZahraConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<
     int max_value = floor(max_coin_value);
 
     winner_stake.owner->add_coin(Coin(reward_value * 0.5, last_block));
-    double winner_coins = winner_stake.get_totall_coins_value();
 
     for (size_t i = 0; i < stakes.size(); i++)
     {
-        stakes[i].owner->add_coin(Coin(reward_value * 0.5 * winner_coins / max_coin_value, last_block));
+        double stakes_totall_coin = stakes[i].get_totall_coins_value();
+        stakes[i].owner->add_coin(Coin(reward_value * 0.5 * stakes_totall_coin / max_coin_value, last_block));
     }
 }
