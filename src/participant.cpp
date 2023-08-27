@@ -28,7 +28,7 @@ void Participant::print_status()
     // cout << "Is participating: " << this->is_participating << endl;
 
     // totall coins:
-    int total_coins = 0;
+    double total_coins = 0;
     for (size_t i = 0; i < coins.size(); i++)
         total_coins += coins[i].get_value();
     cout << " ---- Total coins: ---" << total_coins << endl;

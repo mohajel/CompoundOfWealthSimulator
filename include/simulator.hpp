@@ -12,7 +12,7 @@ class Simulator
 {
 
 public:
-    Simulator(/* args */);
+    Simulator(ConsenseProtocol* cp);
     ~Simulator();
 
     void run(int number_of_blocks);

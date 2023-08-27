@@ -11,23 +11,23 @@
 
 using namespace std;
 
-Simulator::Simulator(/* args */) 
+Simulator::Simulator(ConsenseProtocol* cp) 
     : 
-    last_block_number(0)
+    last_block_number(0),
+    consense_protocol(cp)
 {
-    // consense_protocol = new ConsenseProtocol();
-    consense_protocol = new ZahraConsenseProtocol();
 }
 
 Simulator::~Simulator()
 {
+    delete consense_protocol;
 }
 
 void Simulator::run(int number_of_blocks)
 {
     cout << "Simulator is running" << endl;
 
-    double reward_value = 5;
+    double reward_value = 5.5;
 
     print_participants_status();
 
@@ -41,6 +41,7 @@ void Simulator::run(int number_of_blocks)
         Stake winner_stake = consense_protocol->find_winner_stake(stakes);
 
         cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
+        // cout << "Winner Participant first coin value: " << winner_stake.coins[0].get_value() << endl;
 
         consense_protocol->distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 
@@ -90,7 +91,6 @@ void Simulator::get_stakes_from_participants()
 void Simulator::add_participants(vector<Participant> participants)
 {
     this->participants = participants;
-
 }
 
 void Simulator::add_participants(Participant participant)
