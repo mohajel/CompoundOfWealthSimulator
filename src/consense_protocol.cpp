@@ -74,7 +74,6 @@ double ConsenseProtocol::get_total_stakes_value(std::vector<Stake> &stakes)
 }
 
 
-
 ZahraConsenseProtocol::ZahraConsenseProtocol(/* args */)
 {
 }
