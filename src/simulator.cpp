@@ -33,11 +33,8 @@ void Simulator::run(int number_of_blocks)
 
     for (int i = 0; i < number_of_blocks; i++)
     {
-
         last_block_number ++;
-
         get_stakes_from_participants();
-
         Stake winner_stake = consense_protocol->find_winner_stake(stakes);
 
         cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
@@ -50,7 +47,15 @@ void Simulator::run(int number_of_blocks)
         cout << "Block : " << last_block_number << endl;
         // this->print_stakes_status();
         print_participants_status();
-    }   
+    }
+    while (stakes.size() > 0)
+    {
+        last_block_number ++;
+        this->update_stakes();
+        cout << "Block : (some stakes remain)" << last_block_number << endl;
+        print_participants_status();
+    }
+      
 }
 
 void Simulator::print_participants_status()
@@ -72,7 +77,6 @@ void Simulator::print_stakes_status()
         cout << "No stakes EMPTY" << endl;
         return;
     }
-
     for (size_t i = 0; i < stakes.size(); i++)
     {
         cout << "Stake " << i << ":" << endl;
