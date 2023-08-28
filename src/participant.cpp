@@ -53,7 +53,7 @@ void Participant::add_coin(vector<Coin> coins)
         this->coins.push_back(coin);
 }
 
-Stake Participant::generate_stake()
+Stake Participant::generate_stake(int stake_duration)
 {
     vector<Coin> coins;
     for (size_t i = 0; i < this->coins.size(); i++)
@@ -62,10 +62,18 @@ Stake Participant::generate_stake()
     // clear coins
     this->coins.clear();
     
-    return Stake(coins, STAKE_SIZE, this);
+    return Stake(coins, stake_duration, this);
 }
 
 string Participant::get_name()
 {
     return this->name;
+}
+
+double Participant::get_totall_coins_value()
+{
+    double totall_coins_value = 0;
+    for (size_t i = 0; i < this->coins.size(); i++)
+        totall_coins_value += this->coins[i].get_value();
+    return totall_coins_value;
 }

@@ -19,6 +19,7 @@ public:
     Stake find_winner_stake(std::vector<Stake> &stakes);
     virtual void distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number);
     double get_total_stakes_value(std::vector<Stake> &stakes);
+    double get_total_participants_value(std::vector<Participant> &participants);
     
 private:    
 };

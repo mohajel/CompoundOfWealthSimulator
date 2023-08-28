@@ -12,7 +12,7 @@ class Simulator
 {
 
 public:
-    Simulator(ConsenseProtocol* cp, double rw);
+    Simulator(ConsenseProtocol* cp, double rw, int block_duration = 1);
     ~Simulator();
 
     void run(int number_of_blocks);
@@ -31,6 +31,7 @@ private:
 
     int last_block_number;
     const double reward_value;
+    int stake_duration;
 
     ConsenseProtocol* consense_protocol;
 

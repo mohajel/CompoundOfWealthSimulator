@@ -61,7 +61,8 @@ vector<Participant> Initializer::generate_simple_participants(int number_of_part
 {
     vector<Participant> participants;
     for (size_t i = 1; i <= number_of_participants; i++)
-        participants.push_back(this->get_participant(to_string(i), i + 0.2));
+        participants.push_back(this->get_participant(to_string(i), i));
+        // participants.push_back(this->get_participant(to_string(i), i + 0.2));
     return participants;
 }
 

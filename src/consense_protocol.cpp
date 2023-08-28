@@ -73,6 +73,16 @@ double ConsenseProtocol::get_total_stakes_value(std::vector<Stake> &stakes)
     return result;
 }
 
+double ConsenseProtocol::get_total_participants_value(std::vector<Participant> &participants)
+{
+    double result = 0;
+    for (size_t i = 0; i < participants.size(); i++)
+    {
+        result += participants[i].get_totall_coins_value();
+    }
+    return result;
+}
+
 
 ZahraConsenseProtocol::ZahraConsenseProtocol(/* args */)
 {

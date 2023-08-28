@@ -19,9 +19,10 @@ public:
     
     void add_coin(Coin coin);
     void add_coin(std::vector<Coin> coins);
-    Stake generate_stake();
+    Stake generate_stake(int stake_duration = 1);
 
     std::string get_name();
+    double get_totall_coins_value();
 
 private:
     std::vector<Coin> coins;

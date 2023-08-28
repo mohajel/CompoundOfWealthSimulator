@@ -11,11 +11,12 @@
 
 using namespace std;
 
-Simulator::Simulator(ConsenseProtocol* cp, double rw) 
+Simulator::Simulator(ConsenseProtocol* cp, double rw, int stake_duration) 
     : 
     last_block_number(0),
     consense_protocol(cp),
-    reward_value(rw)
+    reward_value(rw),
+    stake_duration(stake_duration)
 {
 }
 
@@ -50,6 +51,7 @@ void Simulator::run(int number_of_blocks)
         this->update_stakes();
         print_participants_status();
     }
+    cout << "All participunts coins sum :" << consense_protocol->get_total_participants_value(participants) << endl;
       
 }
 
@@ -83,7 +85,7 @@ void Simulator::get_stakes_from_participants()
 {
     for (size_t i = 0; i < participants.size(); i++)
     {
-        stakes.push_back(participants[i].generate_stake());
+        stakes.push_back(participants[i].generate_stake(this->stake_duration));
     }
 }
 

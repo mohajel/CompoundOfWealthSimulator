@@ -14,11 +14,13 @@ using namespace std;
 int main()
 {
     int number_of_participants = 10;
-    int number_of_blocks = 10;
-    double reward_value = 20;
+    int number_of_blocks = 2;
+    int stake_duration = 3;
+    double reward_value = 5;
     Initializer init;
-    Simulator simulator(new ZahraConsenseProtocol(), reward_value);
-    // Simulator simulator(new ConsenseProtocol());
+    // Simulator simulator(new ZahraConsenseProtocol(), reward_value);
+    Simulator simulator(new ZahraConsenseProtocol(), reward_value, stake_duration);
+    // Simulator simulator(new ConsenseProtocol(), reward_value, stake_duration);
 
     // simulator.add_participants(init.generate_random_participants(number_of_participants));
     simulator.add_participants(init.generate_simple_participants(number_of_participants));
