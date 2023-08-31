@@ -12,12 +12,14 @@
 
 using namespace std;
 
-int get_random_number(int min, int max) 
+double get_random_number(double min, double max) 
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(min, max);
-    return dis(gen);
+    std::uniform_real_distribution<> dis(min, max);
+    double result = dis(gen);
+    cout << "random number: " << result << endl;
+    return result;
 }
 
 
@@ -39,7 +41,7 @@ Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
     // cout << "max value: " << max_value << endl;
 
     // find random number between 0 and max_coin_value using rand function
-    int chosen_coin = get_random_number(0, max_value);
+    double chosen_coin = get_random_number(0, max_coin_value);
     // cout << "chosen coin: " << chosen_coin << endl;
 
     for (size_t i = 0; i < stakes.size(); i++)
@@ -53,6 +55,8 @@ Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
         }
     }
     // never reachs here
+    cout << "Error in ConsenseProtocol::find_winner_stake" << endl;
+    exit(EXIT_FAILURE);
     return stakes[stakes.size() - 1];
 }
 

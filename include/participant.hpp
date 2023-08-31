@@ -24,6 +24,8 @@ public:
     std::string get_name();
     double get_totall_coins_value();
 
+    double initial_coin_percentage;
+
 private:
     std::vector<Coin> coins;
     std::string name;

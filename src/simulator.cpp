@@ -51,7 +51,7 @@ void Simulator::run(int number_of_blocks)
         this->update_stakes();
         print_participants_status();
     }
-    cout << "All participunts coins sum :" << consense_protocol->get_total_participants_value(participants) << endl;
+    // cout << "All participunts coins sum :" << consense_protocol->get_total_participants_value(participants) << endl;
       
 }
 

@@ -60,9 +60,14 @@ Coin Initializer::get_random_coin(int interval)
 vector<Participant> Initializer::generate_simple_participants(int number_of_participants)
 {
     vector<Participant> participants;
+    double totall_coins = (1 + number_of_participants) * number_of_participants / 2;
+    // TODO: ....
+    
     for (size_t i = 1; i <= number_of_participants; i++)
+    {
         participants.push_back(this->get_participant(to_string(i), i));
         // participants.push_back(this->get_participant(to_string(i), i + 0.2));
+    }
     return participants;
 }
 
