@@ -18,7 +18,7 @@ double get_random_number(double min, double max)
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(min, max);
     double result = dis(gen);
-    cout << "random number: " << result << endl;
+    cout << "random number: " << result << endl;                                 
     return result;
 }
 
