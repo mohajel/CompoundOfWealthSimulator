@@ -26,4 +26,15 @@ DataAnalyzer::~DataAnalyzer()
     // cout << "DataAnalyzer Destructor" << endl;
 }
 
+double DataAnalyzer::calculate_gini_coefficient(vector<Participant> &participants)
+{
+    double result = 0;
+    int n = participants.size();
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n ; j++)
+            result += abs(participants[i].get_totall_coins_value() - participants[j].get_totall_coins_value());
+    return result / (2 * n);
+}
+
 // void DataAnalyzer::analyze
