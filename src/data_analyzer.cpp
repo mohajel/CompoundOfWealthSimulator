@@ -5,6 +5,7 @@
 #include <random>
 #include <string>
 #include <iomanip>
+#include <fstream>
 
 
 #include "initializer.hpp"
@@ -35,6 +36,14 @@ double DataAnalyzer::calculate_gini_coefficient(vector<Participant> &participant
         for (int j = 0; j < n ; j++)
             result += abs(participants[i].get_totall_coins_value() - participants[j].get_totall_coins_value());
     return result / (2 * n);
+}
+
+void DataAnalyzer::write_to_file(vector<Participant> &participants, string file_name)
+{
+    ofstream output_file(file_name);
+    for (int i = 0; i < participants.size(); i++)
+        output_file << participants[i].get_totall_coins_value() << endl;
+    output_file.close();
 }
 
 // void DataAnalyzer::analyze

@@ -7,6 +7,7 @@
 #include "participant.hpp"
 #include "coin.hpp"
 #include "consense_protocol.hpp"
+#include "data_analyzer.hpp"
 
 
 using namespace std;
@@ -27,6 +28,11 @@ Simulator::~Simulator()
 
 void Simulator::run(int number_of_blocks)
 {
+    DataAnalyzer* data_analyzer = new DataAnalyzer();
+
+    data_analyzer->write_to_file(participants, "initial_data.txt");
+    cout << "Initial Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
+
     cout << "Simulator is running" << endl;
     print_participants_status();
 
@@ -52,7 +58,9 @@ void Simulator::run(int number_of_blocks)
         print_participants_status();
     }
     // cout << "All participunts coins sum :" << consense_protocol->get_total_participants_value(participants) << endl;
-      
+    data_analyzer->write_to_file(participants, "final_data.txt");
+    cout << "Final Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
+    delete data_analyzer;
 }
 
 void Simulator::print_participants_status()
