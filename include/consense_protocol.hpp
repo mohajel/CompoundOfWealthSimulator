@@ -37,6 +37,20 @@ public:
 private:
 };
 
+class GeometricConsenseProtocol : public ConsenseProtocol
+{
+
+public:
+    GeometricConsenseProtocol(int time_period);
+    ~GeometricConsenseProtocol();
+
+    void distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number) override;
+    
+private:
+    double calculate_reward(int block_number, double constant_block_reward);
+    const int time_period;
+};
+
 #endif // __CONSENSE_PROTOCOL__
 
 

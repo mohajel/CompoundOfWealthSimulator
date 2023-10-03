@@ -1,7 +1,5 @@
 // In the Name of God
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include <iostream>
 
 #include "manual.hpp"
@@ -13,12 +11,18 @@ using namespace std;
 
 int main()
 {
-    int number_of_participants = 100;
-    int number_of_blocks = 1000;
+    int number_of_participants = 10;
+    int number_of_blocks = 50;
     int stake_duration = 3;
     double reward_value = 10;
     Initializer init;
-    Simulator simulator(new ZahraConsenseProtocol(), reward_value);
+
+    double constant_reward_value = 10;
+    int time_period = 10;
+    Simulator simulator(new GeometricConsenseProtocol(time_period), constant_reward_value);
+
+
+    // Simulator simulator(new ZahraConsenseProtocol(), reward_value);
     // Simulator simulator(new ZahraConsenseProtocol(), reward_value, stake_duration);
 
     // Simulator simulator(new ConsenseProtocol(), reward_value);

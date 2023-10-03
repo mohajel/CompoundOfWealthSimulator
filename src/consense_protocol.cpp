@@ -113,3 +113,33 @@ void ZahraConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<
         stakes[i].owner->add_coin(Coin(reward_value * 0.5 * stakes_totall_coin / max_coin_value, last_block));
     }
 }
+
+GeometricConsenseProtocol::GeometricConsenseProtocol(int time_period)
+    :
+    time_period(time_period)
+{
+}
+
+void GeometricConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number)
+{
+    double reward = calculate_reward(last_block_number, reward_value);
+    ConsenseProtocol::distribute_rewards(winner_stake, stakes, reward, last_block_number);
+}
+
+double GeometricConsenseProtocol::calculate_reward(int block_number, double constant_block_reward)
+{
+    double r = constant_block_reward * this->time_period;
+    int n = ((block_number - 1) % this->time_period) + 1;
+
+    double t = this->time_period;
+    double reward = pow(1 + r, n / t) - pow(1 + r, (n - 1) / t);
+
+    // print all for debug
+    // cout << "-- block_number = " << block_number << endl;
+    // cout << "t = " << t << endl;
+    // cout << "r = " << r << endl;
+    // cout << "n = " << n << endl;
+    // cout << "reward = " << reward << endl;
+
+    return reward;
+}
