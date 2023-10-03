@@ -6,18 +6,15 @@
 #include <string>
 #include <iomanip>
 
-
 #include "initializer.hpp"
 #include "manual.hpp"
 #include "participant.hpp"
 #include "coin.hpp"
 
-
 using namespace std;
 
 Initializer::Initializer()
 {
-    
 }
 
 Initializer::~Initializer()
@@ -39,7 +36,6 @@ Participant Initializer::get_random_participant(string name)
     return participant;
 }
 
-
 Participant Initializer::get_participant(string name, double coin_value)
 {
     Participant participant(name);
@@ -56,13 +52,12 @@ Coin Initializer::get_random_coin(int interval)
     return Coin(coin_value, initial_block);
 }
 
-
 vector<Participant> Initializer::generate_simple_participants(int number_of_participants)
 {
     vector<Participant> participants;
     double totall_coins = (1 + number_of_participants) * number_of_participants / 2;
     // TODO: ....
-    
+
     for (size_t i = 1; i <= number_of_participants; i++)
     {
         participants.push_back(this->get_participant(to_string(i), i));
@@ -71,6 +66,11 @@ vector<Participant> Initializer::generate_simple_participants(int number_of_part
     return participants;
 }
 
-
-
-
+vector<Participant> Initializer::generate_two_participants(int first_participant_coins_value,
+                                                           int second_participant_coins_value)
+{
+    vector<Participant> participants;
+    participants.push_back(this->get_participant("1", first_participant_coins_value));
+    participants.push_back(this->get_participant("2", second_participant_coins_value));
+    return participants;
+}

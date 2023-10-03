@@ -13,9 +13,7 @@ int main()
 
     // write in vectorized form
 
-
-    #pragma omp parallel for reduction(+:sum)
-    // 
+    #pragma omp parallel for 
     for (i = 0; i < n; i++) 
     {
         printf("thread: %d - i = %d \n", omp_get_thread_num(), i);

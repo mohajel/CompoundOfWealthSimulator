@@ -9,6 +9,18 @@
 
 using namespace std;
 
+void simple_consense_protocol_test(int number_of_tests, string file_name)
+{
+
+
+
+    // Initializer init;
+    // Simulator simulator(new ConsenseProtocol(), 10);
+    // simulator.add_participants(init.generate_simple_participants(10));
+    // simulator.run(number_of_tests);
+    // simulator.print_results(file_name);
+}
+
 int main()
 {
     int number_of_participants = 10;
@@ -21,12 +33,12 @@ int main()
     int time_period = 10;
     Simulator simulator(new GeometricConsenseProtocol(time_period), constant_reward_value);
 
+    // Simulator simulator(new ConsenseProtocol(), reward_value);
+    // Simulator simulator(new ConsenseProtocol(), reward_value, stake_duration);
 
     // Simulator simulator(new ZahraConsenseProtocol(), reward_value);
     // Simulator simulator(new ZahraConsenseProtocol(), reward_value, stake_duration);
 
-    // Simulator simulator(new ConsenseProtocol(), reward_value);
-    // Simulator simulator(new ConsenseProtocol(), reward_value, stake_duration);
 
     // simulator.add_participants(init.generate_random_participants(number_of_participants));
     simulator.add_participants(init.generate_simple_participants(number_of_participants));

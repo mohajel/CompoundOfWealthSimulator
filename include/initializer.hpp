@@ -16,7 +16,7 @@ public:
 
     std::vector<Participant> generate_random_participants(int number_of_participants);
     std::vector<Participant> generate_simple_participants(int number_of_participants);
-
+    std::vector<Participant> generate_two_participants(int first_participant_coins_value, int second_participant_coins_value);
 
 private:
     Participant get_random_participant(std::string name);
