@@ -98,7 +98,7 @@ ZahraConsenseProtocol::~ZahraConsenseProtocol()
 
 void ZahraConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block)
 {
-    cout << "Zahra distribute_rewards" << endl;
+    // cout << "Zahra distribute_rewards" << endl;
     // get all coins from all stakes
     double max_coin_value = get_total_stakes_value(stakes);
 
