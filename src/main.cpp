@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <omp.h>
+#include <fstream>
 
 #include "manual.hpp"
 #include "simulator.hpp"
@@ -12,12 +13,12 @@ using namespace std;
 
 void simple_consense_protocol_test()
 {
-    int number_of_tests = 1000;
+    int number_of_tests = 2000;
     string file_name = "simple_consense_protocol_test.txt";
-    double reward_value = 10;
+    double reward_value = 5;
     int coin_value_a = 10;
     int coin_value_b = 20;
-    int number_of_blocks = 1000;
+    int number_of_blocks = 2000;
 
     Initializer init;
     vector< vector<Participant> > test_results = vector< vector<Participant> >(number_of_tests);
@@ -35,11 +36,21 @@ void simple_consense_protocol_test()
     for (size_t i = 0; i < test_results.size(); i++)
     {
         double value = test_results[i][0].get_totall_coins_value();
-        cout << "Test " << i << " : " << value << endl;
+        cout << "Test " << i << " : " << value << " percent:" << value / 5030 << endl;
         sum += value;
     }
     cout << "Average: " << sum / number_of_tests << endl;
-    
+
+    // open file
+    ofstream file;
+    file.open(file_name);
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value1 = test_results[i][0].get_totall_coins_value();
+        double value2 = test_results[i][1].get_totall_coins_value();
+        file << value1 << " " << value2 << endl;
+    }
+    file.close();
 }
 
 int main()

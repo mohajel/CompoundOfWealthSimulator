@@ -1,0 +1,22 @@
+# sketch PDF from lots of samples of random variables
+# plot histogram of samples
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# number of samples
+n = 10000
+
+# generate samples from random variable
+samples = np.random.normal(size=n)
+
+# plot histogram of samples
+plt.hist(samples, bins=100)
+
+# show plot
+plt.show()
+
+# save plot as png file
+plt.savefig('histogram.png')
+
+
