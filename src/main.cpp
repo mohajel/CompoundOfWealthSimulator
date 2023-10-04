@@ -13,12 +13,12 @@ using namespace std;
 
 void simple_consense_protocol_test()
 {
-    int number_of_tests = 2000;
+    int number_of_tests = 4000;
     string file_name = "simple_consense_protocol_test.txt";
-    double reward_value = 5;
+    double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
-    int number_of_blocks = 2000;
+    int number_of_blocks = 500;
 
     Initializer init;
     vector< vector<Participant> > test_results = vector< vector<Participant> >(number_of_tests);
@@ -28,7 +28,7 @@ void simple_consense_protocol_test()
     {
         //  printf(">>>    thread: %d --Test: i = %d \n", omp_get_thread_num(), int(i));
         Simulator simulator(new ConsenseProtocol(), reward_value);
-        simulator.add_participants(init.generate_two_participants(coin_value_a, coin_value_b));
+        simulator.add_participants(init.generate_two_participants(coin_value_b, coin_value_a));
         simulator.run(number_of_blocks);
         test_results[i] = simulator.get_participants();
     }

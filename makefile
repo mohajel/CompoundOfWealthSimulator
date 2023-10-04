@@ -31,7 +31,8 @@ endef
 all: $(TARGET)
 
 clean:
-	rm $(BUILDDIR) $(BINDIR) *.png *.txt -rf
+	rm $(BUILDDIR) $(BINDIR) -rf
+# rm $(BUILDDIR) $(BINDIR) *.png *.txt -rf
 
 $(TARGET): $(BINDIR) $(BUILDDIR) $(OBJECTS)
 	$(call print_green,"Linking object files...")
