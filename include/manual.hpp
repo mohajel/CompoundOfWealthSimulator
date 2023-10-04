@@ -7,6 +7,4 @@
 
 #define STAKE_SIZE 1
 
-
-
 #endif // __MANUAL__

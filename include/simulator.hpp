@@ -16,11 +16,9 @@ public:
     ~Simulator();
 
     void run(int number_of_blocks);
-
-
     void add_participants(std::vector<Participant> participants);
     void add_participants(Participant participant);
-
+    std::vector<Participant> get_participants();
 
 private:
     void print_stakes_status();

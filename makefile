@@ -11,9 +11,9 @@ SOURCES   := $(shell find $(SRCDIR) -type f -name *.c*)
 HEDEARS   := $(shell find $(HEADERDIR) -type f -name *.h*)
 OBJECTS   := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(addsuffix .o,$(basename $(SOURCES))))
 DEPS      := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(addsuffix .d,$(basename $(SOURCES))))
-CFLAGS    := 
-LIB       := 
-INC       := -I include -I src
+CFLAGS    :=  -fopenmp
+LIB       :=  -fopenmp
+INC       :=  -I include -I src 
 
 all: debug
 debug: CFLAGS += -g
@@ -52,7 +52,6 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c*
 	@sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
 	-e '/^$$/ d' -e 's/$$/ :/' < $(@:.o=.td) >> $(@:.o=.d); 
 	@rm -f $(@:.o=.td)
-
 
 -include $(DEPS)
 

@@ -28,39 +28,40 @@ Simulator::~Simulator()
 
 void Simulator::run(int number_of_blocks)
 {
-    DataAnalyzer* data_analyzer = new DataAnalyzer();
+    // DataAnalyzer* data_analyzer = new DataAnalyzer();
 
-    data_analyzer->write_to_file(participants, "initial_data.txt");
-    cout << "Initial Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
+    // data_analyzer->write_to_file(participants, "initial_data.txt");
+    // cout << "Initial Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
 
     cout << "Simulator is running" << endl;
-    print_participants_status();
+    // print_participants_status();
 
     for (int i = 0; i < number_of_blocks; i++)
     {
         last_block_number ++;
-        cout << "Block : " << last_block_number << endl;
+        // cout << "Block : " << last_block_number << endl;
 
         get_stakes_from_participants();
         Stake winner_stake = consense_protocol->find_winner_stake(stakes);
-        cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
+        // cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
         consense_protocol->distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
         this->update_stakes();
 
         // this->print_stakes_status();
-        print_participants_status();
+        // print_participants_status();
     }
     while (stakes.size() > 0)
     {
         last_block_number ++;
-        cout << "Block : (some stakes remain)" << last_block_number << endl;
+        // cout << "Block : (some stakes remain)" << last_block_number << endl;
         this->update_stakes();
-        print_participants_status();
+        // print_participants_status();
     }
     // cout << "All participunts coins sum :" << consense_protocol->get_total_participants_value(participants) << endl;
-    data_analyzer->write_to_file(participants, "final_data.txt");
-    cout << "Final Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
-    delete data_analyzer;
+    // data_analyzer->write_to_file(participants, "final_data.txt");
+    // cout << "Final Gini Coefficient: " << data_analyzer->calculate_gini_coefficient(participants) << endl;
+    // delete data_analyzer;
+    print_participants_status();
 }
 
 void Simulator::print_participants_status()
@@ -105,6 +106,11 @@ void Simulator::add_participants(vector<Participant> participants)
 void Simulator::add_participants(Participant participant)
 {
     this->participants.push_back(participant);
+}
+
+vector<Participant> Simulator::get_participants()
+{
+    return this->participants;
 }
 
 void Simulator::update_stakes()
