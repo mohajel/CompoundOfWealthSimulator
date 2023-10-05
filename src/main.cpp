@@ -22,7 +22,7 @@ void simple_consense_protocol_test()
 
 
     int number_of_tests = 5000;
-    string file_name = "simple_consense_protocol_test.txt";
+    string file_name = "results/simple_consense_protocol_test.txt";
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
@@ -65,12 +65,12 @@ void simple_consense_protocol_test()
 
 void zahra_consense_protocol_test()
 {
-    int number_of_tests = 4000;
-    string file_name = "zahra_consense_protocol_test.txt";
+    int number_of_tests = 5000;
+    string file_name = "results/zahra_consense_protocol_test.txt";
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
-    int number_of_blocks = 500;
+    int number_of_blocks = 1000;
 
     Initializer init;
     vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
@@ -107,13 +107,13 @@ void zahra_consense_protocol_test()
 
 void geometric_consense_protocol_test()
 {
-    int number_of_tests = 10000;
-    string file_name = "geometric_consense_protocol_test.txt";
-    double constant_reward_value = 10;
+    int number_of_tests = 5000;
+    string file_name = "results/geometric_t_4.txt";
+    double constant_reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
-    int number_of_blocks = 500;
-    int time_period = 50;
+    int number_of_blocks = 1000;
+    int time_period = 250;
 
     Initializer init;
     vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
@@ -151,9 +151,9 @@ void geometric_consense_protocol_test()
 
 int main()
 {
-    simple_consense_protocol_test();
+    // simple_consense_protocol_test();
     // zahra_consense_protocol_test();
-    // geometric_consense_protocol_test();
+    geometric_consense_protocol_test();
 
     // int number_of_participants = 10;
     // int number_of_blocks = 50;
