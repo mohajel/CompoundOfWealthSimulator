@@ -145,11 +145,15 @@ void geometric_consense_protocol_test()
 void pow_consence_protocol_test()
 {
     int number_of_tests = 5000;
+    // int number_of_tests = 1;
+
     string file_name = "./data/pow.txt";
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
+    
     int number_of_blocks = 1000;
+    // int number_of_blocks = 10;
 
     Initializer init;
     vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
@@ -162,7 +166,7 @@ void pow_consence_protocol_test()
     for (size_t i = 0; i < number_of_tests; i++)
     {
         Simulator simulator(new ConsenseProtocol(), reward_value);
-        simulator.add_participants(init.generate_two_participants(coin_value_b, coin_value_a));
+        simulator.add_participants(init.generate_two_pow_participants(coin_value_b, coin_value_a));
         simulator.run(number_of_blocks);
         test_results[i] = simulator.get_participants();
     }

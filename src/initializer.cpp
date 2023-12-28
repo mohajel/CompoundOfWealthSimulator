@@ -43,6 +43,14 @@ Participant Initializer::get_participant(string name, double coin_value)
     return participant;
 }
 
+Participant Initializer::get_participant_pow(std::string name, double coin_value)
+{
+    Participant participant(name, 1);
+    // only here in pow i gave -1 for bugfix
+    participant.add_coin(Coin(coin_value, -1));
+    return participant;
+}
+
 Coin Initializer::get_random_coin(int interval)
 {
     // create random number between 0 and interval
@@ -72,5 +80,14 @@ vector<Participant> Initializer::generate_two_participants(int first_participant
     vector<Participant> participants;
     participants.push_back(this->get_participant("1", first_participant_coins_value));
     participants.push_back(this->get_participant("2", second_participant_coins_value));
+    return participants;
+}
+
+std::vector<Participant> Initializer::generate_two_pow_participants(int first_participant_coins_value,
+                                                                    int second_participant_coins_value)
+{
+    vector<Participant> participants;
+    participants.push_back(this->get_participant_pow("1", first_participant_coins_value));
+    participants.push_back(this->get_participant_pow("2", second_participant_coins_value));
     return participants;
 }

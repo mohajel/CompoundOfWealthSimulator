@@ -9,11 +9,12 @@
 
 using namespace std;
 
-Participant::Participant(string name, float latancy, bool is_participating)
+Participant::Participant(string name, int type, float latancy, bool is_participating)
 {
     this->name = name;
     this->latancy = latancy;
     this->is_participating = is_participating;
+    this->type = type;
 }
 
 Participant::~Participant()
@@ -55,6 +56,10 @@ void Participant::add_coin(vector<Coin> coins)
 
 Stake Participant::generate_stake(int stake_duration)
 {
+    // messiest code ever! this part is for pow 1 is for pow
+    if (this->type == 1)
+        return this->generate_stake_initial_invest(stake_duration);
+    
     vector<Coin> coins;
     for (size_t i = 0; i < this->coins.size(); i++)
         coins.push_back(this->coins[i]);
@@ -78,28 +83,19 @@ double Participant::get_totall_coins_value()
     return totall_coins_value;
 }
 
-
-
-InitialInvestParticipant::InitialInvestParticipant(string name, float latancy, bool is_participating)
-    :
-    Participant(name, latancy, is_participating)
+Stake Participant::generate_stake_initial_invest(int stake_duration)
 {
-}
-
-InitialInvestParticipant::~InitialInvestParticipant()
-{
-}
-
-
-Stake InitialInvestParticipant::generate_stake(int stake_duration)
-{
+    // cout << "IN InitialInvestParticipant GENERATE STAKE" << endl;
     vector<Coin> coins;
-    for (size_t i = 0; i < this->coins.size(); i++)
-        if (coins[i].get_block_created() == 1)
+    for (long long int i = 0; i < this->coins.size(); i++)
+    {
+        if (this->coins[i].get_block_created() == -1)
         {
             coins.push_back(this->coins[i]);
             this->coins.erase(this->coins.begin() + i);
             break;
         }
+    }
+    
     return Stake(coins, stake_duration, this);
 }
