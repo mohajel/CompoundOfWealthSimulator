@@ -24,7 +24,6 @@ public:
 private:    
 };
 
-
 class ZahraConsenseProtocol : public ConsenseProtocol
 {
 

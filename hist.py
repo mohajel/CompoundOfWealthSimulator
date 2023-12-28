@@ -7,12 +7,17 @@ import matplotlib.pyplot as plt
 # IMPORTANT: change this based on your test cases
 totall_coins_value = 40000
 
-simple_data = "./results/simple_consense_protocol_test.txt"
+# simple_data = "./results/simple_consense_protocol_test.txt"
+# zahra_data = "./results/zahra_consense_protocol_test.txt"
+# geometric_data = "./results/geometric_consense_protocol_test.txt"
+# geometric_t_4_data = "./results/geometric_t_4.txt"
+
+simple_data = "./data/simple.txt"
 zahra_data = "./results/zahra_consense_protocol_test.txt"
 geometric_data = "./results/geometric_consense_protocol_test.txt"
 geometric_t_4_data = "./results/geometric_t_4.txt"
 
-file_name = geometric_t_4_data
+file_name = simple_data
 print("File name: ", file_name)
 
 # read data from file
