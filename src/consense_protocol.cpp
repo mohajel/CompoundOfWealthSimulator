@@ -156,16 +156,19 @@ TimeVariantConsenseProtocol::~TimeVariantConsenseProtocol()
 Stake TimeVariantConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes, int last_block_number)
 {
     // get all coins from all stakes
+    // cout << "last_block_number" << last_block_number << endl;
     double max_coin_value_time_varient = 0;
     for (size_t i = 0; i < stakes.size(); i++)
     {
         vector<Coin> coins = stakes[i].coins;
         for (size_t j = 0; j < coins.size(); j++)
         {
+            // double temp = coins[j].get_value() * (last_block_number - coins[j].get_block_created());
             max_coin_value_time_varient += coins[j].get_value() * (last_block_number - coins[j].get_block_created());
+            // cout << "---" << temp << endl;
         }
     }
-    cout << "max_coin_value_time_varient" << max_coin_value_time_varient << endl;
+    // cout << "max_coin_value_time_varient" << max_coin_value_time_varient << endl;
 
     double chosen_coin = get_random_number(0, max_coin_value_time_varient);
 

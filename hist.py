@@ -17,8 +17,9 @@ pow_data = "./data/pow.txt"
 zahra_data = "./data/zahra.txt"
 geometric_data = "./data/geometric-1.txt"
 geometric_t_4_data = "./results/geometric_t_4.txt"
+timevariant = "./data/time_variant.txt"
 
-file_name = geometric_data
+file_name = timevariant
 print("File name: ", file_name)
 
 # read data from file

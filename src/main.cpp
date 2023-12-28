@@ -187,12 +187,60 @@ void pow_consence_protocol_test()
     file.close();
 }
 
+
+void time_variant_consense_protocol_test()
+{
+    int number_of_tests = 5000;
+    // int number_of_tests = 1;
+    string file_name = "./data/time_variant.txt";
+    double reward_value = 40;
+    int coin_value_a = 10;
+    int coin_value_b = 20;
+    int number_of_blocks = 1000;
+    // int number_of_blocks = 10;
+
+    Initializer init;
+    vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
+
+    // open file
+    ofstream file;
+    file.open(file_name);
+
+    #pragma omp parallel for
+    for (size_t i = 0; i < number_of_tests; i++)
+    {
+        //  printf(">>>    thread: %d --Test: i = %d \n", omp_get_thread_num(), int(i));
+        Simulator simulator(new TimeVariantConsenseProtocol(), reward_value);
+        simulator.add_participants(init.generate_two_participants(coin_value_b, coin_value_a));
+        simulator.run(number_of_blocks);
+        test_results[i] = simulator.get_participants();
+    }
+    double sum = 0;
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value = test_results[i][0].get_totall_coins_value();
+        // cout << "Test " << i << " : " << value << " percent:" << value / 5030 << endl;
+        sum += value;
+    }
+    cout << "Average: " << sum / number_of_tests << endl;
+
+
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value1 = test_results[i][0].get_totall_coins_value();
+        double value2 = test_results[i][1].get_totall_coins_value();
+        file << value1 << " " << value2 << endl;
+    }
+    file.close();
+}
+
 int main()
 {
     // simple_consense_protocol_test();
     // pow_consence_protocol_test();
     // zahra_consense_protocol_test();
-    geometric_consense_protocol_test();
+    // geometric_consense_protocol_test();
+    time_variant_consense_protocol_test();
 
     // int number_of_participants = 10;
     // int number_of_blocks = 50;

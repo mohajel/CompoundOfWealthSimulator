@@ -39,7 +39,8 @@ Participant Initializer::get_random_participant(string name)
 Participant Initializer::get_participant(string name, double coin_value)
 {
     Participant participant(name);
-    participant.add_coin(Coin(coin_value, 1));
+    // make sure this does not cause bug
+    participant.add_coin(Coin(coin_value, -1));
     return participant;
 }
 
