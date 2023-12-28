@@ -42,7 +42,7 @@ void Simulator::run(int number_of_blocks)
         // cout << "Block : " << last_block_number << endl;
 
         get_stakes_from_participants();
-        Stake winner_stake = consense_protocol->find_winner_stake(stakes);
+        Stake winner_stake = consense_protocol->find_winner_stake(stakes, last_block_number);
         // cout << "Winner Participant: " << winner_stake.owner->get_name() << endl;
         consense_protocol->distribute_rewards(winner_stake, stakes, reward_value, last_block_number);
 

@@ -31,7 +31,7 @@ ConsenseProtocol::~ConsenseProtocol()
 {
 }
 
-Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes)
+Stake ConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes, int last_block_number)
 {
     // get all coins from all stakes
     double max_coin_value = this->get_total_stakes_value(stakes);
@@ -122,6 +122,7 @@ GeometricConsenseProtocol::GeometricConsenseProtocol(int time_period)
 
 void GeometricConsenseProtocol::distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number)
 {
+    cout << "GEO DIST" << endl;
     double reward = calculate_reward(last_block_number, reward_value);
     ConsenseProtocol::distribute_rewards(winner_stake, stakes, reward, last_block_number);
 }
@@ -142,4 +143,44 @@ double GeometricConsenseProtocol::calculate_reward(int block_number, double cons
     // cout << "reward = " << reward << endl;
 
     return reward;
+}
+
+TimeVariantConsenseProtocol::TimeVariantConsenseProtocol()
+{
+}
+
+TimeVariantConsenseProtocol::~TimeVariantConsenseProtocol()
+{
+}
+
+Stake TimeVariantConsenseProtocol::find_winner_stake(std::vector<Stake> &stakes, int last_block_number)
+{
+    // get all coins from all stakes
+    double max_coin_value_time_varient = 0;
+    for (size_t i = 0; i < stakes.size(); i++)
+    {
+        vector<Coin> coins = stakes[i].coins;
+        for (size_t j = 0; j < coins.size(); j++)
+        {
+            max_coin_value_time_varient += coins[j].get_value() * (last_block_number - coins[j].get_block_created());
+        }
+    }
+    cout << "max_coin_value_time_varient" << max_coin_value_time_varient << endl;
+
+    double chosen_coin = get_random_number(0, max_coin_value_time_varient);
+
+    for (size_t i = 0; i < stakes.size(); i++)
+    {
+        vector<Coin> coins = stakes[i].coins;
+        for (size_t j = 0; j < coins.size(); j++)
+        {
+            chosen_coin = chosen_coin - coins[j].get_value() * (last_block_number - coins[j].get_block_created());
+            if (chosen_coin <= 0)
+                return stakes[i];
+        }
+    }
+    // never reachs here
+    cout << "Error in TimeVariantConsenseProtocol::find_winner_stake" << endl;
+    exit(EXIT_FAILURE);
+    return stakes[stakes.size() - 1];
 }

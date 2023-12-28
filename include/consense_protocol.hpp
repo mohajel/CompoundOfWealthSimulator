@@ -16,7 +16,7 @@ public:
     ConsenseProtocol();
     ~ConsenseProtocol();
 
-    Stake find_winner_stake(std::vector<Stake> &stakes);
+    virtual Stake find_winner_stake(std::vector<Stake> &stakes, int last_block_number);
     virtual void distribute_rewards(Stake &winner_stake, std::vector<Stake> &stakes, double reward_value, int last_block_number);
     double get_total_stakes_value(std::vector<Stake> &stakes);
     double get_total_participants_value(std::vector<Participant> &participants);
@@ -48,6 +48,18 @@ public:
 private:
     double calculate_reward(int block_number, double constant_block_reward);
     const int time_period;
+};
+
+class TimeVariantConsenseProtocol : public ConsenseProtocol
+{
+
+public:
+    TimeVariantConsenseProtocol();
+    ~TimeVariantConsenseProtocol();
+
+    Stake find_winner_stake(std::vector<Stake> &stakes, int last_block_number) override; 
+    
+private:
 };
 
 #endif // __CONSENSE_PROTOCOL__
