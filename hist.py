@@ -14,11 +14,11 @@ totall_coins_value = 40000
 
 simple_data = "./data/simple.txt"
 pow_data = "./data/pow.txt"
-zahra_data = "./results/zahra_consense_protocol_test.txt"
-geometric_data = "./results/geometric_consense_protocol_test.txt"
+zahra_data = "./data/zahra.txt"
+geometric_data = "./data/geometric-1.txt"
 geometric_t_4_data = "./results/geometric_t_4.txt"
 
-file_name = pow_data
+file_name = geometric_data
 print("File name: ", file_name)
 
 # read data from file

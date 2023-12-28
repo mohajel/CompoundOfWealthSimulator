@@ -58,7 +58,7 @@ void simple_consense_protocol_test()
 void zahra_consense_protocol_test()
 {
     int number_of_tests = 5000;
-    string file_name = "results/zahra_consense_protocol_test.txt";
+    string file_name = "data/zahra.txt";
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
@@ -100,12 +100,12 @@ void zahra_consense_protocol_test()
 void geometric_consense_protocol_test()
 {
     int number_of_tests = 5000;
-    string file_name = "results/geometric_t_4.txt";
+    string file_name = "data/geometric-1.txt";
     double constant_reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
     int number_of_blocks = 1000;
-    int time_period = 250;
+    int time_period = 1000;
 
     Initializer init;
     vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
@@ -141,7 +141,6 @@ void geometric_consense_protocol_test()
 
 }
 
-
 void pow_consence_protocol_test()
 {
     int number_of_tests = 5000;
@@ -151,7 +150,7 @@ void pow_consence_protocol_test()
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
-    
+
     int number_of_blocks = 1000;
     // int number_of_blocks = 10;
 
@@ -188,13 +187,12 @@ void pow_consence_protocol_test()
     file.close();
 }
 
-
 int main()
 {
     // simple_consense_protocol_test();
-    pow_consence_protocol_test();
+    // pow_consence_protocol_test();
     // zahra_consense_protocol_test();
-    // geometric_consense_protocol_test();
+    geometric_consense_protocol_test();
 
     // int number_of_participants = 10;
     // int number_of_blocks = 50;
