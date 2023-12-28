@@ -77,3 +77,29 @@ double Participant::get_totall_coins_value()
         totall_coins_value += this->coins[i].get_value();
     return totall_coins_value;
 }
+
+
+
+InitialInvestParticipant::InitialInvestParticipant(string name, float latancy, bool is_participating)
+    :
+    Participant(name, latancy, is_participating)
+{
+}
+
+InitialInvestParticipant::~InitialInvestParticipant()
+{
+}
+
+
+Stake InitialInvestParticipant::generate_stake(int stake_duration)
+{
+    vector<Coin> coins;
+    for (size_t i = 0; i < this->coins.size(); i++)
+        if (coins[i].get_block_created() == 1)
+        {
+            coins.push_back(this->coins[i]);
+            this->coins.erase(this->coins.begin() + i);
+            break;
+        }
+    return Stake(coins, stake_duration, this);
+}

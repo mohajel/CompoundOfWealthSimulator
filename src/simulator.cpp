@@ -118,8 +118,8 @@ void Simulator::update_stakes()
     // cout << "Stakes size before update: " << stakes.size() << endl;
     for (long long int i = stakes.size() -1 ; i >= 0; i--)
     {
-        bool result = stakes[i].update_stake();
-        if (result == false)
+        bool stake_remained = stakes[i].update_stake();
+        if (stake_remained == false)
             stakes.erase(stakes.begin() + i);
     }
     // cout << "Stakes size after update: " << stakes.size() << endl;
