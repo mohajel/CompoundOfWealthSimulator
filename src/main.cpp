@@ -55,6 +55,53 @@ void simple_consense_protocol_test()
     file.close();
 }
 
+
+void simple_ten()
+{
+    // int number_of_tests = 5000;
+    int number_of_tests = 1;
+
+    int number_of_participants = 10;
+    string file_name = "./data/simple_ten.txt";
+    double reward_value = 1;
+    // int number_of_blocks = 1000;
+    int number_of_blocks = 10;
+
+    Initializer init;
+    vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
+
+    // open file
+    ofstream file;
+    file.open(file_name);
+
+    // #pragma omp parallel for
+    for (size_t i = 0; i < number_of_tests; i++)
+    {
+        //  printf(">>>    thread: %d --Test: i = %d \n", omp_get_thread_num(), int(i));
+        Simulator simulator(new ConsenseProtocol(), reward_value);
+        simulator.add_participants(init.generate_simple_participants(number_of_participants));
+        simulator.run(number_of_blocks);
+        test_results[i] = simulator.get_participants();
+    }
+    double sum = 0;
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value = test_results[i][0].get_totall_coins_value();
+        // cout << "Test " << i << " : " << value << " percent:" << value / 5030 << endl;
+        sum += value;
+    }
+    cout << "Average: " << sum / number_of_tests << endl;
+
+
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value1 = test_results[i][0].get_totall_coins_value();
+        double value2 = test_results[i][1].get_totall_coins_value();
+        file << value1 << " " << value2 << endl;
+    }
+    file.close();
+}
+
 void zahra_consense_protocol_test()
 {
     int number_of_tests = 5000;
@@ -234,13 +281,27 @@ void time_variant_consense_protocol_test()
     file.close();
 }
 
-int main()
+void two_people_test()
 {
-    // simple_consense_protocol_test();
+    simple_consense_protocol_test();
     // pow_consence_protocol_test();
     // zahra_consense_protocol_test();
     // geometric_consense_protocol_test();
-    time_variant_consense_protocol_test();
+    // time_variant_consense_protocol_test();
+}
+
+void ten_people_test()
+{
+    simple_ten();
+
+}
+
+int main()
+{
+
+    ten_people_test();
+
+
 
     // int number_of_participants = 10;
     // int number_of_blocks = 50;
