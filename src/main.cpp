@@ -14,7 +14,7 @@ using namespace std;
 void simple_consense_protocol_test()
 {
     int number_of_tests = 5000;
-    string file_name = "./data/simple.txt";
+    string file_name = "./data/simple-demo.txt";
     double reward_value = 40;
     int coin_value_a = 10;
     int coin_value_b = 20;
@@ -298,8 +298,9 @@ void ten_people_test()
 
 int main()
 {
+    simple_consense_protocol_test();
 
-    ten_people_test();
+    // ten_people_test();
 
 
 
