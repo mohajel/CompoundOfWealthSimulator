@@ -55,7 +55,6 @@ void simple_consense_protocol_test()
     file.close();
 }
 
-
 void simple_ten()
 {
     // int number_of_tests = 5000;
