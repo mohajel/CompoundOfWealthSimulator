@@ -21,9 +21,6 @@ print("File name: ", file_name)
 # read data from file
 data = np.loadtxt(file_name)
 
-plt.xlabel("Fraction Of Stake")
-plt.ylabel("Density")
-
 # get only second set of samples
 samples = data[:,1]
 # samples = data[:,0]
@@ -37,6 +34,7 @@ samples = samples / totall_coins_value
 plt.hist(samples, bins=100, density=True, histtype='stepfilled', label='Samples')
 
 
+
 # Parameters
 a = 0.33
 b = 0.66
@@ -47,10 +45,10 @@ x = np.linspace(0, 1, 1000)
 # Calculate PDF
 pdf = beta.pdf(x, a, b)
 
-# Plotting
+# Plotting the beta distribution
 plt.plot(x, pdf, lw=2, label='Beta Distribution')
 
-# x range from 0 to 1
+# x range from -0.1 to 1.1 to show the whole distribution
 plt.xlim(-0.1,1.1)
 
 # find mean and variance of samples
@@ -61,18 +59,18 @@ variance = np.var(samples)
 print("Mean: ", mean)
 print("Variance: ", variance)
 
+# add labels
+plt.xlabel("Fraction Of Stake")
+plt.ylabel("Density")
+
+# add grid, legend and title AND show plot
 plt.grid(True)
 plt.legend()
 plt.title("Simple POS Beta Distribution")
-
-# show plot
 plt.show()
 
-# legends for the plot
-plt.legend(["Beta Distribution", "Samples"])
-
 # save plot as png file
-# plt.savefig(file_name +".png")
+# plt.savefig("simple"+".png")
 
 
 
