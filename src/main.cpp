@@ -143,6 +143,63 @@ void zahra_consense_protocol_test()
     file.close();
 }
 
+void zahra_consense_protocol_divide_coins_test()
+{
+    int number_of_tests = 5000;
+    string file_name = "data/zahra-divide.txt";
+    double reward_value = 40;
+    int coin_value_a = 10;
+    int coin_value_b1 = 5;
+    int coin_value_b2 = 5;
+    int coin_value_b3 = 5;
+    int coin_value_b4 = 5;
+    int number_of_blocks = 1000;
+
+    Initializer init;
+    vector<vector<Participant>> test_results = vector<vector<Participant>>(number_of_tests);
+
+    // generate participants here
+    vector<Participant> participants;
+    participants.push_back(init.get_participant("a", coin_value_a));
+    participants.push_back(init.get_participant("b1", coin_value_b1));
+    participants.push_back(init.get_participant("b2", coin_value_b2));
+    participants.push_back(init.get_participant("b3", coin_value_b3));
+    participants.push_back(init.get_participant("b4", coin_value_b4));
+
+    #pragma omp parallel for
+    for (size_t i = 0; i < number_of_tests; i++)
+    {
+        //  printf(">>>    thread: %d --Test: i = %d \n", omp_get_thread_num(), int(i));
+        Simulator simulator(new ZahraConsenseProtocol(), reward_value);
+        simulator.add_participants(participants);
+        simulator.run(number_of_blocks);
+        test_results[i] = simulator.get_participants();
+    }
+    double sum = 0;
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value = test_results[i][0].get_totall_coins_value();
+        cout << "Test " << i << " : " << value << " percent:" << value / 40030 << endl;
+        sum += value;
+    }
+    cout << "Average: " << sum / number_of_tests << endl;
+
+    // open file
+    ofstream file;
+    file.open(file_name);
+    for (size_t i = 0; i < test_results.size(); i++)
+    {
+        double value1 = test_results[i][0].get_totall_coins_value();
+        double value2 = test_results[i][1].get_totall_coins_value();
+        double value3 = test_results[i][2].get_totall_coins_value();
+        double value4 = test_results[i][3].get_totall_coins_value();
+        double value5 = test_results[i][4].get_totall_coins_value();
+        file << value1 << " " << value2 << " " << value3 << " " << value4 << " " << value5 << endl;
+    }
+    file.close();
+}
+
+
 void geometric_consense_protocol_test()
 {
     int number_of_tests = 5000;
@@ -297,7 +354,13 @@ void ten_people_test()
 
 int main()
 {
-    simple_consense_protocol_test();
+    // simple_consense_protocol_test();
+
+    zahra_consense_protocol_divide_coins_test();
+
+
+
+
 
     // ten_people_test();
 
