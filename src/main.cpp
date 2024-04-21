@@ -203,10 +203,10 @@ void zahra_consense_protocol_divide_coins_test()
 void geometric_consense_protocol_test()
 {
     int number_of_tests = 5000;
-    string file_name = "data/geometric-1.txt";
-    double constant_reward_value = 40;
-    int coin_value_a = 10;
-    int coin_value_b = 20;
+    string file_name = "data/geometric-bitcoin.txt";
+    double constant_reward_value = 50;
+    int coin_value_a = 17;
+    int coin_value_b = 34;
     int number_of_blocks = 1000;
     int time_period = 1000;
 
@@ -249,10 +249,10 @@ void pow_consence_protocol_test()
     int number_of_tests = 5000;
     // int number_of_tests = 1;
 
-    string file_name = "./data/pow.txt";
-    double reward_value = 40;
-    int coin_value_a = 10;
-    int coin_value_b = 20;
+    string file_name = "./data/pow-bitcoin.txt";
+    double reward_value = 50;
+    int coin_value_a = 17;
+    int coin_value_b = 34;
 
     int number_of_blocks = 1000;
     // int number_of_blocks = 10;
@@ -356,7 +356,11 @@ int main()
 {
     // simple_consense_protocol_test();
 
-    zahra_consense_protocol_divide_coins_test();
+    // zahra_consense_protocol_divide_coins_test();
+
+    // pow_consence_protocol_test();
+
+    geometric_consense_protocol_test();
 
 
 
